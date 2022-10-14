@@ -1,0 +1,22 @@
+{
+  "name": "node_fall22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mckenkoe/node_fall22.git"
+  },
+  "author": "Mckenna Koetitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mckenkoe/node_fall22/issues"
+  },
+  "homepage": "https://github.com/Mckenkoe/node_fall22#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
