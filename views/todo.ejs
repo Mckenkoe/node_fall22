@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Todo Mongo Example</title>
+    <link rel="stylesheet" href="/static/stylesheets/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"/>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.8.2"> -->
+
+</head>
+
+<body>
+    <div class="todo-container">
+        <h2>
+            To-Do Items
+        </h2>
+        <div class="todo">
+            <form action="/" method="POST" class="todo-header">
+                <input type="text" name="content"/>
+                <button type="submit">
+                    Submit
+                    <!-- <i class="fa-solid fa-plus"></i> -->
+                </button>
+            </form>
+            <ul class="todo-list">
+                <li class="todo-list-item">
+                    <div class="todo-list-item-name">
+                        first task
+                    </div>
+                    <a href="" class="edit">
+                        Edit
+                        <!-- <i class="fa-solid fa-pen-to-square"></i> -->
+                    </a>
+                    <a href="" class="remove">
+                        Remove
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
