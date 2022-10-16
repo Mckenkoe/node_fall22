@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/static/stylesheets/styles.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"/>
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.8.2"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -13,11 +14,10 @@
             To-Do Items
         </h2>
         <div class="todo">
-            <form action="/" method="POST" class="todo-header">
+            <form action="/" method="POST" class="to-do-header">
                 <input type="text" name="content"/>
                 <button type="submit">
-                    Submit
-                    <!-- <i class="fa-solid fa-plus"></i> -->
+                    <i class="fa fa-plus"></i>
                 </button>
             </form>
             <ul class="todo-list">
@@ -26,12 +26,10 @@
                         first task
                     </div>
                     <a href="" class="edit">
-                        Edit
-                        <!-- <i class="fa-solid fa-pen-to-square"></i> -->
+                        <i class="fa fa-pencil"></i>
                     </a>
                     <a href="" class="remove">
-                        Remove
-                        <i class="fa-regular fa-circle-xmark"></i>
+                        <i class="fa fa-times"></i>
                     </a>
                 </li>
             </ul>
