@@ -10,13 +10,12 @@
         function done(todoTag){
             const _id = todoTag.getAttribute("data-todoID");
             console.log(_id)
-            fetch('/', {
+            fetch('/done', {
                 method: 'PUT',
-                body: JSON.stringify({id: _id})
-            })
-            .then((response) => response.json())
-            .then((result) => {
-                console.log('Success:', result);
+                body: JSON.stringify({id: `${_id}`}),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -26,17 +25,34 @@
         function deleteItem(todoTag){
             const _id = todoTag.getAttribute("data-todoID");
             console.log(_id)
+            fetch(`/delete/${_id}`, {
+                method: 'DELETE',
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         }
     </script>
 </head>
 
 <body>
+    
+    
     <div class="todo-container">
+        <div class="comic">
+            <h2>
+                <%= comicData.safe_title %> 
+             </h2>
+             <img src="<%= comicData.img %>" alt="<%= comicData.alt%>" width="250px" height="250px"> 
+        </div>
         <h2>
             To-Do Items
         </h2>
         <div class="todo">
-            <form action="/" method="POST" class="to-do-header">
+            <form action="/create" method="POST" class="to-do-header">
                 <input type="text" name="content"/>
                 <button type="submit">
                     <i class="fa fa-plus"></i>
@@ -45,9 +61,15 @@
             <ul class="todo-list">
                 <% todo.forEach(function(todo){ %>
                     <li class="todo-list-item">
-                        <div class="todo-list-item-name">
-                            <%= todo.todo %>
-                        </div>
+                        <% if(todo.done){ %>
+                            <div class="todo-list-item-name strike-through">
+                                <%= todo.todo %>
+                            </div>
+                        <% } else {%>
+                            <div class="todo-list-item-name">
+                                <%= todo.todo %>
+                            </div>
+                        <% } %>
                         <button data-todoID="<%= todo._id %>" class="edit" onClick="done(this)">
                             <i class="fa fa-pencil"></i>
                         </button>

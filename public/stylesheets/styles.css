@@ -96,3 +96,13 @@ body{
     cursor: pointer;
     text-decoration: none;
 }
+
+.todo-list-item .strike-through{
+    text-decoration: line-through;
+}
+
+.comic{
+    margin: auto;
+    color: white;
+    text-align: center;
+}
