@@ -6,6 +6,28 @@
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/release/v5.8.2"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script>
+        function done(todoTag){
+            const _id = todoTag.getAttribute("data-todoID");
+            console.log(_id)
+            fetch('/', {
+                method: 'PUT',
+                body: JSON.stringify({id: _id})
+            })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log('Success:', result);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        function deleteItem(todoTag){
+            const _id = todoTag.getAttribute("data-todoID");
+            console.log(_id)
+        }
+    </script>
 </head>
 
 <body>
@@ -21,17 +43,19 @@
                 </button>
             </form>
             <ul class="todo-list">
-                <li class="todo-list-item">
-                    <div class="todo-list-item-name">
-                        first task
-                    </div>
-                    <a href="" class="edit">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a href="" class="remove">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </li>
+                <% todo.forEach(function(todo){ %>
+                    <li class="todo-list-item">
+                        <div class="todo-list-item-name">
+                            <%= todo.todo %>
+                        </div>
+                        <button data-todoID="<%= todo._id %>" class="edit" onClick="done(this)">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button data-todoID="<%= todo._id %>" class="remove" onClick="deleteItem(this)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </li>
+                <% }) %>
             </ul>
         </div>
     </div>
