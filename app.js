@@ -28,6 +28,7 @@ app.get('/', function(req,res){
                 res.json({"Error: ":err})
             }else{
                 res.render('todo.ejs',{todo:todo, comicData: response.data});
+                res.sendStatus(200)
             }
         })
     }).catch(function(error){
