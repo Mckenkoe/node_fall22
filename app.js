@@ -29,6 +29,7 @@ app.get('/', function(req,res){
             }else{
                 res.render('todo.ejs',{todo:todo, comicData: response.data});
                 res.sendStatus(200)
+                return;
             }
         })
     }).catch(function(error){
